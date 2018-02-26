@@ -3,7 +3,7 @@
 An quick and dirty fogserver without dhcp service.
 https://fogproject.org/
 
-Start fogserver
+Start fogserver with set the hostip(IP) environment. If don't set, the container use containerip.
 ```
 docker run -itd --name fogserver --hostname fogserver.local -p 80:80 -p 69:69 -p 2049:2049 -e IP="192.168.178.123" unclesamwk/fogserver
 ```
