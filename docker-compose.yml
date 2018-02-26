@@ -1,0 +1,16 @@
+fogserver:
+  container_name: fogserver
+  hostname: fogserver.local
+  tty: true
+  build: .
+  volumes:
+    - ./images:/images
+    - ./backup:/backup
+  ports:
+    - 80:80
+    - 69:69
+    - 2049:2049
+  environment:
+    IP: "192.168.178.123"
+  privileged: true
+  restart: always
