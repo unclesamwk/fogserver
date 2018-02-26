@@ -5,7 +5,7 @@ https://fogproject.org/
 
 Start fogserver with set the hostip(IP) environment. If don't set, the container use containerip.
 ```
-docker run -itd --name fogserver --hostname fogserver.local -p 80:80 -p 69:69 -p 2049:2049 -e IP="192.168.178.123" unclesamwk/fogserver
+docker run -itd --name fogserver --hostname fogserver.local -p 80:80 -p 69:69/udp -p 2049:2049/udp -e IP="192.168.178.123" unclesamwk/fogserver
 ```
 Use docker-compose:
 ```
@@ -18,8 +18,8 @@ fogserver:
     - ./backup:/backup
   ports:
     - 80:80
-    - 69:69
-    - 2049:2049
+    - 69:69/udp
+    - 2049:2049/udp
   environment:
     IP: "192.168.178.123"
   privileged: true
