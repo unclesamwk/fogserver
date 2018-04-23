@@ -6,7 +6,7 @@ RUN apt update \
 
 RUN apt install -y wget iproute2 software-properties-common language-pack-en git jq
 
-ENV VERSION=1.5.0
+ENV VERSION=1.5.2
 
 RUN git clone https://github.com/FOGProject/fogproject.git \
  && cd fogproject/bin \
