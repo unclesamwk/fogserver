@@ -15,10 +15,10 @@ chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 if [ ${IP} ] && [ -f /INIT ] ; then
   mysqldump -u root fog > dump.sql
   sed -i 's,'${ipaddress}','${IP}',g' /dump.sql \
-                                          /tftpboot/default.ipxe \
-                                          /var/www/fog/lib/fog/config.class.php \
-                                          /var/www/html/fog/lib/fog/config.class.php \
-                                          /etc/apache2/sites-enabled/001-fog.conf
+                                      /tftpboot/default.ipxe \
+                                      /var/www/fog/lib/fog/config.class.php \
+                                      /var/www/html/fog/lib/fog/config.class.php \
+                                      /etc/apache2/sites-enabled/001-fog.conf
   mysql -u root fog < dump.sql && rm -f dump.sql
 fi
 
@@ -61,6 +61,6 @@ while true ; do
 
   # create a backup every 24 hours
   sleep 86400
-  /usr/local/bin/fog_backup
+  /usr/local/bin/fog_backup -B /backup
 
 done

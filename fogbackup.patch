@@ -1,8 +1,0 @@
-7c7
-< . ../../lib/common/utils.sh
----
-> . /opt/fog/utils.sh
-74c74
-<     wget --no-check-certificate -O $backupDir/mysql/fog.sql "http://$ipaddress/$webroot/management/export.php?type=sql" 2>>$backupDir/logs/error.log 1>>$backupDir/logs/progress.log 2>&1
----
->     mysqldump -h localhost -u root fog > $backupDir/mysql/fog.sql
